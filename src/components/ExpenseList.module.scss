@@ -1,0 +1,92 @@
+@import '../styles/variables';
+
+.listCard {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  box-shadow: $shadow-saas;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: $bg-secondary;
+  border-radius: $radius-sm;
+  border: 1px solid $border-color;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .reason {
+    font-weight: 600;
+  }
+
+  .subInfo {
+    display: flex;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    .category {
+      color: $accent-primary;
+    }
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .amount {
+    font-weight: 700;
+    color: $accent-danger;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+
+  button {
+    background: transparent;
+    border: none;
+    color: $text-muted;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+
+    &:hover {
+      color: $text-primary;
+      background: $bg-hover;
+    }
+
+    &.deleteBtn:hover {
+      color: $accent-danger;
+    }
+  }
+}
+
+.empty {
+  color: $text-muted;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,62 @@
+@import '../styles/variables';
+
+.card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  box-shadow: $shadow-saas;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    font-weight: 500;
+  }
+
+  .totalAmount {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+
+  select {
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    outline: none;
+
+    &:focus {
+      border-color: $accent-primary;
+    }
+  }
+}
+
+.chartContainer {
+  max-width: 320px;
+  margin: 0 auto;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty {
+  color: $text-muted;
+  font-size: 0.9rem;
+}

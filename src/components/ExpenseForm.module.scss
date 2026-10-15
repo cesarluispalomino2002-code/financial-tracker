@@ -1,0 +1,76 @@
+@import '../styles/variables';
+
+.formCard {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  box-shadow: $shadow-saas;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 0.8rem;
+    color: $text-secondary;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  input, select {
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: 10px 12px;
+    outline: none;
+
+    &:focus {
+      border-color: $accent-primary;
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border-radius: $radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+
+  .btnPrimary {
+    background: $accent-primary;
+    color: white;
+
+    &:hover { background: $accent-hover; }
+  }
+
+  .btnSecondary {
+    background: transparent;
+    border: 1px solid $border-color;
+    color: $text-secondary;
+
+    &:hover { background: $bg-hover; }
+  }
+}

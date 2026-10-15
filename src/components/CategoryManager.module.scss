@@ -1,0 +1,41 @@
+@import '../styles/variables';
+
+.card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: 1.25rem;
+
+  h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: $text-secondary;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+
+  input {
+    flex: 1;
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: 8px 12px;
+    outline: none;
+
+    &:focus { border-color: $accent-primary; }
+  }
+
+  button {
+    background: $bg-hover;
+    border: 1px solid $border-color;
+    padding: 8px 14px;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover { background: $accent-primary; color: white; }
+  }
+}
