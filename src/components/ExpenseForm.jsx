@@ -51,7 +51,7 @@ export default function ExpenseForm({ categories, onSave, editingExpense, onCanc
       <h3>{editingExpense ? 'Editar Gasto' : 'Registrar Nuevo Gasto'}</h3>
 
       <div className={styles.inputGroup}>
-        <label>Monto ($)</label>
+        <label>Monto (S/.)</label>
         <input 
           type="number" 
           step="0.01" 

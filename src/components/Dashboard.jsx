@@ -75,7 +75,7 @@ const filteredExpenses = useMemo(() => {
       <div className={styles.header}>
         <div>
           <h2>Resumen de Gastos</h2>
-          <p className={styles.totalAmount}>${totalSpent.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</p>
+          <p className={styles.totalAmount}>S/.{totalSpent.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</p>
         </div>
 
         <div className={styles.filters}>

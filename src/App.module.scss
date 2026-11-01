@@ -1,4 +1,4 @@
-@import './styles/variables';
+@use './styles/variables' as *;
 
 .appContainer {
   max-width: 1280px;

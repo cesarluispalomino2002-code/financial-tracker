@@ -3,6 +3,7 @@ import Dashboard from './components/Dashboard';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import CategoryManager from './components/CategoryManager';
+import { MonthFilter } from './components/MonthFilter';
 import styles from './App.module.scss';
 
 const DEFAULT_CATEGORIES = ['Comida', 'Gasolina', 'Ropa', 'Servicios', 'Entretenimiento'];
@@ -19,6 +20,7 @@ export default function App() {
   });
 
   const [editingExpense, setEditingExpense] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState('all');
 
   useEffect(() => {
     localStorage.setItem('expenses_data', JSON.stringify(expenses));
@@ -47,6 +49,17 @@ export default function App() {
     }
   };
 
+  // 🔍 Lógica para filtrar gastos por mes seleccionado
+  const filteredExpenses = expenses.filter((expense) => {
+    if (selectedMonth === 'all') return true;
+
+    // Ajuste de fecha local para evitar desfases de zona horaria UTC
+    const dateStr = expense.date.includes('T') ? expense.date : `${expense.date}T00:00:00`;
+    const expenseDate = new Date(dateStr);
+
+    return expenseDate.getMonth().toString() === selectedMonth;
+  });
+
   return (
     <div className={styles.appContainer}>
       <header className={styles.header}>
@@ -56,7 +69,12 @@ export default function App() {
 
       <main className={styles.mainGrid}>
         <section className={styles.leftColumn}>
-          <Dashboard expenses={expenses} categories={categories} />
+          {/* Se añade el selector de mes y se envía filteredExpenses */}
+          <MonthFilter
+            selectedMonth={selectedMonth}
+            onSelectMonth={setSelectedMonth}
+          />
+          <Dashboard expenses={filteredExpenses} categories={categories} />
         </section>
 
         <section className={styles.rightColumn}>
@@ -68,7 +86,7 @@ export default function App() {
           />
           <CategoryManager categories={categories} onAddCategory={handleAddCategory} />
           <ExpenseList 
-            expenses={expenses} 
+            expenses={filteredExpenses} 
             onEdit={setEditingExpense} 
             onDelete={handleDeleteExpense} 
           />
