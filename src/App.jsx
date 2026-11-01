@@ -4,6 +4,7 @@ import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import CategoryManager from './components/CategoryManager';
 import { MonthFilter } from './components/MonthFilter';
+import DataBackup from './components/DataBackup';
 import styles from './App.module.scss';
 
 const DEFAULT_CATEGORIES = ['Comida', 'Gasolina', 'Ropa', 'Servicios', 'Entretenimiento'];
@@ -69,11 +70,15 @@ export default function App() {
 
       <main className={styles.mainGrid}>
         <section className={styles.leftColumn}>
-          {/* Se añade el selector de mes y se envía filteredExpenses */}
+          {/* Selector de mes */}
           <MonthFilter
             selectedMonth={selectedMonth}
             onSelectMonth={setSelectedMonth}
           />
+          
+          {/* Botones de Exportar e Importar CSV */}
+          <DataBackup expenses={expenses} setExpenses={setExpenses} />
+
           <Dashboard expenses={filteredExpenses} categories={categories} />
         </section>
 
