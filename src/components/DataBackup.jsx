@@ -15,12 +15,12 @@ export default function DataBackup({ expenses, setExpenses }) {
     
     // Mapear los gastos a filas de texto
     const rows = expenses.map(e => [
-      e.id,
-      `"${(e.title || e.description || 'Gasto').replace(/"/g, '""')}"`, // Sanitizar comillas
-      e.amount,
-      `"${(e.category || 'General').replace(/"/g, '""')}"`,
-      e.date
-    ]);
+  e.id,
+  `"${(e.reason || e.title || e.description || 'Gasto').replace(/"/g, '""')}"`,
+  e.amount,
+  `"${(e.category || 'General').replace(/"/g, '""')}"`,
+  e.date
+]);
 
     // Unir todo con comas y saltos de línea
     const csvContent = [
@@ -81,14 +81,14 @@ export default function DataBackup({ expenses, setExpenses }) {
           row.push(entry);
 
           if (row.length >= 5) {
-            importedExpenses.push({
-              id: row[0] || crypto.randomUUID(),
-              title: row[1]?.replace(/^"|"$/g, '') || 'Gasto importado',
-              amount: parseFloat(row[2]) || 0,
-              category: row[3]?.replace(/^"|"$/g, '') || 'General',
-              date: row[4] || new Date().toISOString().slice(0, 10)
-            });
-          }
+  importedExpenses.push({
+    id: row[0] || crypto.randomUUID(),
+    reason: row[1]?.replace(/^"|"$/g, '') || 'Gasto importado',
+    amount: parseFloat(row[2]) || 0,
+    category: row[3]?.replace(/^"|"$/g, '') || 'General',
+    date: row[4] || new Date().toISOString().slice(0, 10)
+  });
+}
         }
 
         if (importedExpenses.length > 0) {

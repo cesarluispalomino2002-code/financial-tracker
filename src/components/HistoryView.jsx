@@ -231,8 +231,8 @@ export default function HistoryView({
             >
               <div>
                 <div style={{ fontWeight: 600 }}>
-                  {item.title || item.description || 'Gasto sin título'}
-                </div>
+  {item.reason || item.title || item.description || 'Gasto sin título'}
+</div>
                 <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '0.2rem' }}>
                   {item.category || 'General'} · {normalizeDateInput(item.date) || item.date}
                 </div>
